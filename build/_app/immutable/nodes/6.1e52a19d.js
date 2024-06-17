@@ -1,0 +1,11 @@
+import{s as v,n}from"../chunks/scheduler.49ee5a6c.js";import{S as m,i as p,g as d,s as f,h,A as u,c as g,k as y,a as i,f as r}from"../chunks/index.0fc7d4ce.js";function _(X){let e,o="Library of past ideas",a,s,c=`<h1 class="blog-title svelte-fce9ve">Check out what I said the other day</h1> <div class="blog-content svelte-fce9ve"><p>Vaporwave is a unique genre that blends music, art, and internet culture into a nostalgic yet
+			futuristic aesthetic. Emerging in the early 2010s, this style draws heavily from 1980s and
+			1990s pop culture, incorporating elements such as retro computer graphics, early internet
+			imagery, and smooth jazz or elevator music remixes. It&#39;s both a critique and celebration of
+			consumer capitalism, often invoking a sense of surrealism and irony.</p> <p>This will be the Five most recent articles. And have a link to a page of the list in
+			descending order from the most resect.</p> <ul class="svelte-fce9ve"><li class="svelte-fce9ve">Retro Aesthetics - XX/XX/XXXX: Heavy use of 1980s and 1990s graphics, VHS effects, and
+				glitch art.</li> <li class="svelte-fce9ve">Pastel and Neon Colors - XX/XX/XXXX: Predominantly features pastel pinks, blues, and purples
+				combined with bright neon hues.</li> <li class="svelte-fce9ve">Nostalgic Soundscapes - XX/XX/XXXX: Incorporates slowed-down and remixed elevator music,
+				smooth jazz, and muzak.</li> <li class="svelte-fce9ve">Japanese Characters and Imagery - XX/XX/XXXX: Frequently uses Japanese text and themes,
+				reflecting the global influence of 80s and 90s Japan.</li> <li class="svelte-fce9ve">Surreal and Dreamlike Quality - XX/XX/XXXX: Creates a sense of otherworldliness through
+				distorted visuals and sounds.</li></ul></div>`;return{c(){e=d("h1"),e.textContent=o,a=f(),s=d("div"),s.innerHTML=c,this.h()},l(t){e=h(t,"H1",{"data-svelte-h":!0}),u(e)!=="svelte-qs4daq"&&(e.textContent=o),a=g(t),s=h(t,"DIV",{class:!0,"data-svelte-h":!0}),u(s)!=="svelte-1cplh6n"&&(s.innerHTML=c),this.h()},h(){y(s,"class","blog-container svelte-fce9ve")},m(t,l){i(t,e,l),i(t,a,l),i(t,s,l)},p:n,i:n,o:n,d(t){t&&(r(e),r(a),r(s))}}}class C extends m{constructor(e){super(),p(this,e,null,_,v,{})}}export{C as component};
