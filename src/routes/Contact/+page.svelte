@@ -62,16 +62,16 @@
 			<br />
 			<ul>
 				<li>
-					Social page A: <a href="/"> This page</a>
+					Facebook: <a href="/"> Check if its alive</a>
 				</li>
 				<li>
-					Social page B: <a href="/"> That page</a>
+					Twitter: <a href="https://www.threads.net/@busychildphotos"> Check if its alive</a>
 				</li>
 				<li>
-					Social page C: <a href="/"> Another page</a>
+					Instagram: <a href="https://www.instagram.com/busychildphotos/"> Check if its alive</a>
 				</li>
 				<li>
-					Social page D: <a href="/"> Yet another page</a>
+					Social page: <a href="/"> Yet another page</a>
 				</li>
 			</ul>
 		</div>
@@ -112,6 +112,13 @@
 
 		h1 {
 			padding: 0;
+		}
+	}
+
+	ul {
+		li {
+			list-style-type: none;
+			margin: 1vh 0;
 		}
 	}
 

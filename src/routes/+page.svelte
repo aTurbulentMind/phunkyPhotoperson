@@ -107,6 +107,23 @@
 	</div>
 </div>
 
+<div>
+	<h2>Sign up for stuff today!</h2>
+</div>
+<div class="win_95">
+	<div class="title-bar">
+		<div class="title-bar-text">Signup!</div>
+		<div class="title-bar-controls">
+			<button aria-label="Close">X</button>
+		</div>
+	</div>
+	<div class="window-content">
+		<p>Sign your life away now!</p>
+		<a href="/register/"><button class="win_95_butt">Yes</button></a>
+		<a href="/login/"><button class="win_95_butt">No</button></a>
+	</div>
+</div>
+
 <!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
 	@use 'style/baseCamp';

@@ -20,8 +20,10 @@
 			<div class="window-content">
 				<p>Is it fun to be human?</p>
 
-				<a href="/about/"><button class="win_95_butt">Yes</button></a>
-				<button class="win_95_butt" on:click={closeModal}>No</button>
+				<a href="/"><button class="win_95_butt">Yes</button></a>
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+					><button class="win_95_butt">No</button></a
+				>
 			</div>
 		</div>
 	{/if}

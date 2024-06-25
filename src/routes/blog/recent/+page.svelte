@@ -1,66 +1,49 @@
-<h1>Most recent article</h1>
+<script>
+	import { onMount } from 'svelte';
+	import { supabase } from '$lib/supabaseClient';
+
+	let recentArticle = null;
+
+	// Fetch the most recent article with status 'done'
+	async function fetchRecentArticle() {
+		try {
+			const { data, error } = await supabase
+				.from('Allthestuff')
+				.select('*')
+				.order('id', { ascending: false })
+				.eq('status', 'done')
+				.limit(1)
+				.single();
+
+			if (error) {
+				console.error('Error fetching recent article:', error.message);
+				return;
+			}
+
+			recentArticle = data;
+			console.log('Fetched recent article:', recentArticle);
+		} catch (err) {
+			console.error('Error:', err.message);
+		}
+	}
+
+	onMount(fetchRecentArticle);
+</script>
+
+<h1>Most Recent</h1>
 
 <div class="blog-container">
-	<h1 class="blog-title">What is Vaporwave?</h1>
-	<div class="blog-content">
-		<p>
-			Vaporwave is a unique genre that blends music, art, and internet culture into a nostalgic yet
-			futuristic aesthetic. Emerging in the early 2010s, this style draws heavily from 1980s and
-			1990s pop culture, incorporating elements such as retro computer graphics, early internet
-			imagery, and smooth jazz or elevator music remixes. It's both a critique and celebration of
-			consumer capitalism, often invoking a sense of surrealism and irony.
-		</p>
-
-		<ul>
-			<li>Retro Aesthetics: Heavy use of 1980s and 1990s graphics, VHS effects, and glitch art.</li>
-			<li>
-				Pastel and Neon Colors: Predominantly features pastel pinks, blues, and purples combined
-				with bright neon hues.
-			</li>
-			<li>
-				Nostalgic Soundscapes: Incorporates slowed-down and remixed elevator music, smooth jazz, and
-				muzak.
-			</li>
-			<li>
-				Japanese Characters and Imagery: Frequently uses Japanese text and themes, reflecting the
-				global influence of 80s and 90s Japan.
-			</li>
-			<li>
-				Surreal and Dreamlike Quality: Creates a sense of otherworldliness through distorted visuals
-				and sounds.
-			</li>
-		</ul>
-
-		<p>
-			The essence of vaporwave is rooted in its ability to evoke nostalgia for a past that never
-			truly existed. This genre manipulates familiar media and symbols to create an experience that
-			is both comforting and unsettling. By repurposing old commercial jingles, corporate logos, and
-			archaic technology, vaporwave challenges the viewer's perception of time and memory.
-		</p>
-
-		<p>
-			Artists in the vaporwave community often use pseudonyms and personas, adding to the mystique
-			and anonymity that define the genre. This anonymity allows for greater creative freedom and a
-			deeper focus on the art itself rather than the artist behind it. The community thrives on
-			collaboration, remixing, and the constant evolution of its style.
-		</p>
-
-		<p>
-			Vaporwave has transcended its musical origins to become a full-fledged art movement. It has
-			influenced fashion, graphic design, and even architecture, permeating various aspects of
-			contemporary culture. As a form of digital escapism, it offers a retreat from the fast-paced
-			reality of modern life into a world that is simultaneously familiar and alien.
-		</p>
-
-		<div class="image-container">
-			<!-- Add your image elements here -->
-			<!-- <img src="path/to/your/image1.jpg" alt="Vaporwave Image 1">
-      <img src="path/to/your/image2.jpg" alt="Vaporwave Image 2"> -->
+	{#if recentArticle}
+		<h2 class="blog-title">{recentArticle.text_name}</h2>
+		<p class="highlight"><strong>Date:</strong> {recentArticle.date_made}</p>
+		<div class="blog-content">
+			<p>{recentArticle.text_guts}</p>
 		</div>
-	</div>
+	{:else}
+		<p>Loading most recent article...</p>
+	{/if}
 </div>
 
-<!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
 	.blog-container {
 		max-width: 90vw;

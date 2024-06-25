@@ -20,13 +20,13 @@
 					>
 				</button>
 			</li>
-			<li>
+			<!-- <li>
 				<button on:click={() => (isMenuOpen = false)} on:keydown={() => (isMenuOpen = false)}>
 					<a class:current={current === 1} on:click={() => (current = 1)} href="/reviews/"
 						>Reviews</a
 					>
 				</button>
-			</li>
+			</li> -->
 			<li>
 				<button on:click={() => (isMenuOpen = false)} on:keydown={() => (isMenuOpen = false)}>
 					<a class:current={current === 2} on:click={() => (current = 2)} href="/Contact/"

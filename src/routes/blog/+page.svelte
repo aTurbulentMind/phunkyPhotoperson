@@ -1,3 +1,41 @@
+<script>
+	import { onMount } from 'svelte';
+	import { supabase } from '$lib/supabaseClient';
+
+	let recentArticles = [];
+	let showModal = false;
+	let selectedArticle = null;
+
+	// Fetch the most recent articles
+	async function fetchRecentArticles() {
+		try {
+			const { data, error } = await supabase
+				.from('Allthestuff')
+				.select('*')
+				.order('id', { ascending: false })
+				.eq('type_of_text', 1)
+				.limit(5);
+
+			if (error) {
+				console.error('Error fetching recent articles:', error.message);
+				return;
+			}
+
+			recentArticles = data;
+			console.log('Fetched recent articles:', recentArticles);
+		} catch (err) {
+			console.error('Error:', err.message);
+		}
+	}
+
+	function showArticleDetails(article) {
+		selectedArticle = article;
+		showModal = true;
+	}
+
+	onMount(fetchRecentArticles);
+</script>
+
 <h1>Blog</h1>
 
 <div class="text_Block">
@@ -18,7 +56,36 @@
 		refreshing perspective that celebrates the beauty of ambiguity and timelessness.
 	</p>
 	<br /> <br />
-	<a class="bordt" href="/blog/recent/">Most recent article</a>
+
+	<h2>Most Recent Articles</h2>
+	{#if recentArticles.length > 0}
+		<ul>
+			{#each recentArticles as article}
+				<li>
+					<a class="bordt" href="javascript:void(0);" on:click={() => showArticleDetails(article)}
+						>{article.text_name}</a
+					>
+				</li>
+			{/each}
+		</ul>
+	{:else}
+		<p>Loading recent articles...</p>
+	{/if}
+
+	{#if showModal}
+		<div class="modal" on:click={() => (showModal = false)}>
+			<div class="modal-content" on:click|stopPropagation>
+				{#if selectedArticle}
+					<h2>{selectedArticle.text_name}</h2>
+					<p><strong>Date:</strong> {selectedArticle.date_made}</p>
+					<p><strong>Author:</strong> {selectedArticle.author}</p>
+					<p>{selectedArticle.text_guts}</p>
+				{/if}
+				<button on:click={() => (showModal = false)}>Close</button>
+			</div>
+		</div>
+	{/if}
+
 	<br /> <br />
 	<p class="text_Box cut_Box">Or look into a library of the past.</p>
 	<br />
@@ -37,6 +104,39 @@
 		border-bottom: var(--bord);
 
 		margin: 5vh 15vw;
+	}
+
+	ul {
+		li {
+			list-style-type: none;
+			margin: 2vh 0;
+		}
+	}
+
+	/* Modal styles */
+
+	.modal {
+		background-color: #222;
+		padding: 20px;
+		border: 2px solid #ff77a9;
+		border-radius: 10px;
+		max-width: 80%;
+		max-height: 80%;
+		overflow-y: auto;
+	}
+
+	.modal button {
+		background-color: #ff77a9;
+		color: #222;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 1rem;
+	}
+
+	.modal button:hover {
+		background-color: #ff99b4;
 	}
 
 	@media only screen and (min-width: 1280px) {
