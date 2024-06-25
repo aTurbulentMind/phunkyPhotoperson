@@ -98,7 +98,7 @@
 				<div class="gallery-item" on:click={() => showGalleryDetails(image.name)}>
 					<h2>{image.name}</h2>
 					{#if image.url}
-						<img src={image.url} alt={`${image.name} gallery image`} />
+						<img src={image.url} alt="words" />
 					{:else}
 						<p>No image available</p>
 					{/if}
@@ -117,7 +117,7 @@
 			{#if selectedGalleryImages.length > 0}
 				<div class="carousel-container">
 					{#each selectedGalleryImages as imageUrl}
-						<img src={imageUrl} alt="Gallery image" />
+						<img src={imageUrl} alt="Words" />
 					{/each}
 				</div>
 			{:else}

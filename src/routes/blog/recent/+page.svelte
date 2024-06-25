@@ -44,6 +44,7 @@
 	{/if}
 </div>
 
+<!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
 	.blog-container {
 		max-width: 90vw;
