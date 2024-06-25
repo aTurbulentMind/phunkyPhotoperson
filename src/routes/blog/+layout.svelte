@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+	import { supabase } from '$lib/supabaseClient';
 	import { goto } from '$app/navigation';
 	let menuItems = ['Why', 'Recent', 'Library'];
 	let selected = '';
@@ -6,7 +8,7 @@
 	const select = (name) => {
 		selected = name;
 		if (name === 'Why') {
-			goto('/blog');
+			goto('/blog/');
 		} else {
 			goto('/blog/' + name.toLowerCase());
 		}

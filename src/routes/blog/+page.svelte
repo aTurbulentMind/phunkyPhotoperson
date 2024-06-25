@@ -62,9 +62,9 @@
 		<ul>
 			{#each recentArticles as article}
 				<li>
-					<a class="bordt" href="javascript:void(0);" on:click={() => showArticleDetails(article)}
-						>{article.text_name}</a
-					>
+					<button class="bordt" on:click={() => showArticleDetails(article)}>
+						{article.text_name}
+					</button>
 				</li>
 			{/each}
 		</ul>
