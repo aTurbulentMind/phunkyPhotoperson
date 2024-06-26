@@ -95,38 +95,43 @@
 	{#if images.length > 0}
 		<div class="carousel-container">
 			{#each images as image}
-				<div class="gallery-item" on:click={() => showGalleryDetails(image.name)}>
+				<button
+					class="gallery-item"
+					type="button"
+					aria-label="View details for {image.name}"
+					on:click={() => showGalleryDetails(image.name)}
+				>
 					<h2>{image.name}</h2>
 					{#if image.url}
-						<img src={image.url} alt="words" />
+						<img src={image.url} alt={image.name} />
 					{:else}
 						<p>No image available</p>
 					{/if}
-				</div>
+				</button>
 			{/each}
 		</div>
 	{:else}
-		<p>Loading images...</p>
+		<p aria-live="polite">Loading images...</p>
+	{/if}
+
+	{#if showModal}
+		<div class="modal-background">
+			<div class="modal">
+				<h2>{selectedGallery}</h2>
+				{#if selectedGalleryImages.length > 0}
+					<div class="carousel-container">
+						{#each selectedGalleryImages as imageUrl}
+							<img src={imageUrl} alt={selectedGallery} />
+						{/each}
+					</div>
+				{:else}
+					<p aria-live="polite">Loading gallery images...</p>
+				{/if}
+				<button on:click={() => (showModal = false)}>Close</button>
+			</div>
+		</div>
 	{/if}
 </div>
-
-{#if showModal}
-	<div class="modal-background">
-		<div class="modal">
-			<h2>{selectedGallery}</h2>
-			{#if selectedGalleryImages.length > 0}
-				<div class="carousel-container">
-					{#each selectedGalleryImages as imageUrl}
-						<img src={imageUrl} alt="Words" />
-					{/each}
-				</div>
-			{:else}
-				<p>Loading gallery images...</p>
-			{/if}
-			<button on:click={() => (showModal = false)}>Close</button>
-		</div>
-	</div>
-{/if}
 
 <!-- svelte-ignore css-unused-selector -->
 <style lang="scss">

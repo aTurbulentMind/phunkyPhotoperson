@@ -46,9 +46,14 @@
 		<ul>
 			{#each pastArticles as article}
 				<li>
-					<a class="bordt" href="javascript:void(0);" on:click={() => showArticleDetails(article)}>
+					<button
+						class="bordt"
+						type="button"
+						aria-label="View details for {article.text_name}"
+						on:click={() => showArticleDetails(article)}
+					>
 						{article.text_name}
-					</a>
+					</button>
 					<p class="highlight"><strong>Date:</strong> {article.date_made}</p>
 					<p>{article.short_guts}</p>
 				</li>
@@ -59,19 +64,20 @@
 	{/if}
 
 	{#if showModal}
-		<div class="modal full-window" on:click={() => (showModal = false)}>
-			<div class="modal-content" on:click|stopPropagation>
+		<div class="modal full-window" role="presentation">
+			<div class="modal-content">
 				{#if selectedArticle}
 					<h2>{selectedArticle.text_name}</h2>
 					<p><strong>Date:</strong> {selectedArticle.date_made}</p>
 					<p>{selectedArticle.text_guts}</p>
 				{/if}
-				<button on:click={() => (showModal = false)}>Close</button>
+				<button type="button" on:click={() => (showModal = false)}>Close</button>
 			</div>
 		</div>
 	{/if}
 </div>
 
+<!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
 	.blog-container {
 		max-width: 90vw;

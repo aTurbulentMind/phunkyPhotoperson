@@ -62,35 +62,40 @@
 		<ul>
 			{#each recentArticles as article}
 				<li>
-					<button class="bordt" on:click={() => showArticleDetails(article)}>
+					<button
+						class="bordt"
+						type="button"
+						on:click={() => showArticleDetails(article)}
+						aria-label="View details for {article.text_name}"
+					>
 						{article.text_name}
 					</button>
 				</li>
 			{/each}
 		</ul>
 	{:else}
-		<p>Loading recent articles...</p>
+		<p aria-live="polite">Loading recent articles...</p>
 	{/if}
 
 	{#if showModal}
-		<div class="modal" on:click={() => (showModal = false)}>
-			<div class="modal-content" on:click|stopPropagation>
+		<div class="modal-background" role="presentation">
+			<div class="modal-content">
 				{#if selectedArticle}
 					<h2>{selectedArticle.text_name}</h2>
-					<p><strong>Date:</strong> {selectedArticle.date_made}</p>
-					<p><strong>Author:</strong> {selectedArticle.author}</p>
+					<p>Date: {selectedArticle.date_made}</p>
+					<p>Author: {selectedArticle.author}</p>
 					<p>{selectedArticle.text_guts}</p>
 				{/if}
-				<button on:click={() => (showModal = false)}>Close</button>
+				<button type="button" on:click={() => (showModal = false)}>Close</button>
 			</div>
 		</div>
 	{/if}
-
-	<br /> <br />
-	<p class="text_Box cut_Box">Or look into a library of the past.</p>
-	<br />
-	<a class="bordt" href="/blog/library/">Library of articles</a>
 </div>
+
+<br /> <br />
+<p class="text_Box cut_Box">Or look into a library of the past.</p>
+<br />
+<a class="bordt" href="/blog/library/">Library of articles</a>
 
 <!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
