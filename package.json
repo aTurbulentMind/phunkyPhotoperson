@@ -1,5 +1,5 @@
 {
-	"name": "PhunkyPhotography",
+	"name": "rd_name_list",
 	"version": "0.0.2",
 	"private": true,
 	"scripts": {
@@ -9,8 +9,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"start": "node server.js"
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -30,7 +29,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.43.5",
-		"svelte-dnd-action": "^0.9.49"
+		"@supabase/supabase-js": "^2.39.6",
+		"aws-sdk": "^2.1556.0",
+		"mock-aws-s3": "^4.0.2"
 	}
 }
