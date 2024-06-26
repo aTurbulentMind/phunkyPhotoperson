@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
 
@@ -75,7 +75,9 @@
 			</div>
 		</div>
 	{/if}
-</div>
+</div> -->
+
+<h1>Library of past ideas</h1>
 
 <!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
