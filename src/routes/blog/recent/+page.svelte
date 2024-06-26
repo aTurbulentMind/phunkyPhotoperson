@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
 
@@ -42,7 +42,7 @@
 	{:else}
 		<p>Loading most recent article...</p>
 	{/if}
-</div> -->
+</div>
 
 <h1>Most Recent</h1>
 

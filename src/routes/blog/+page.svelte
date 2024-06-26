@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
 
@@ -95,9 +95,7 @@
 <br /> <br />
 <p class="text_Box cut_Box">Or look into a library of the past.</p>
 <br />
-<a class="bordt" href="/blog/library/">Library of articles</a> -->
-
-<h1>Blogspot</h1>
+<a class="bordt" href="/blog/library/">Library of articles</a>
 
 <!-- svelte-ignore css-unused-selector -->
 <style lang="scss">
