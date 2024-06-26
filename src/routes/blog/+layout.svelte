@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { supabase } from '$lib/supabaseClient';
+	// import { supabase } from '$lib/supabaseClient'; // remove this line
 	import { goto } from '$app/navigation';
 	let menuItems = ['Why', 'Recent', 'Library'];
 	let selected = '';
