@@ -30,7 +30,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.43.5",
-		"svelte-dnd-action": "^0.9.49"
+		"@supabase/supabase-js": "^2.43.5"
 	}
 }
