@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import { supabase } from '$lib/supabaseClient';
-	import { dndzone } from 'svelte-dnd-action';
 
 	let images = [];
 	let folderName = 'neonDreams'; // Example folder name
@@ -184,7 +183,7 @@
 		</select>
 		<br />
 		{#if images.length > 0}
-			<div use:dndzone={{ items: images }}>
+			<div>
 				{#each images as image, i (image.id)}
 					<div>
 						<img src={image.url} alt="Vaporwave" />
@@ -235,48 +234,3 @@
 
 <!-- Logout Button -->
 <button on:click={handleLogout}>Logout</button>
-
-<!-- svelte-ignore css-unused-selector -->
-<style lang="scss">
-	form {
-		border-radius: 5px;
-		padding: 20px;
-		max-width: 500px;
-		margin: auto;
-
-		img {
-			width: 30vw;
-		}
-	}
-
-	label {
-		display: block;
-		margin-bottom: 10px;
-	}
-
-	input[type='text'],
-	input[type='date'] {
-		width: 100%;
-		padding: 10px;
-		margin-bottom: 20px;
-		border-radius: 5px;
-		border: 1px solid #cccccc;
-	}
-
-	input[type='checkbox'] {
-		margin-right: 10px;
-	}
-
-	button {
-		background-color: #007bff;
-		color: #ffffff;
-		padding: 10px 20px;
-		border: none;
-		border-radius: 5px;
-		cursor: pointer;
-	}
-
-	button:hover {
-		background-color: #0056b3;
-	}
-</style>
