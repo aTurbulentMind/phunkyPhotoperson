@@ -1,5 +1,5 @@
 {
-	"name": "PhunkyPhotography",
+	"name": "rd_name_list",
 	"version": "0.0.2",
 	"private": true,
 	"scripts": {
@@ -29,6 +29,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.43.5"
+		"@supabase/supabase-js": "^2.39.6",
+		"aws-sdk": "^2.1556.0",
+		"mock-aws-s3": "^4.0.2"
 	}
 }
